@@ -1,13 +1,25 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors");
+
+const userRouter = require("./routes/userRouter");
+const taskRouter = require("./routes/taskRouter");
+const {verifyToken} = require("./middleware/authMiddleware");
+
+
+
 dotenv.config();
 const app = express();
 
 
+app.user(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.static("public"));
 
-app.use("/", (req,res) => {
-    res.send("Hello World!");
-})
+//routes
+app.use("/api/auth", userRouter);
+app.use("/api/tasks", verifyToken, taskRouter);
 
 
 const PORT = process.env.PORT || 3000;
