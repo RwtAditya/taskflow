@@ -8,13 +8,13 @@ form.addEventListener("submit", async (e)=>{
 
     const res = await fetch("/api/auth/login", {
         method : "POST",
-        headers: {"content-type" : "applicaiton/json"},
+        headers: {"Content-Type" : "application/json"},
         body: JSON.stringify({email,password}),
     })
 
     const data = res.json();
 
-    if(!res.ok) {
+    if(!res.ok) { // false when bad responses
         document.getElementById("errorMsg").textContent = data.message;
         return;
     }
