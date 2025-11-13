@@ -6,8 +6,6 @@ const userRouter = require("./routes/userRouter");
 const taskRouter = require("./routes/taskRouter");
 const {verifyToken} = require("./middleware/authMiddleware");
 
-
-
 dotenv.config();
 const app = express();
 
@@ -17,7 +15,20 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-//routes
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "login.html"));
+});
+
+app.get("/register", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "register.html"));
+});
+
+//routes for auth and tasks
 app.use("/api/auth", userRouter);
 app.use("/api/tasks", verifyToken, taskRouter);
 
