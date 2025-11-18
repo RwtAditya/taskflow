@@ -22,8 +22,8 @@ exports.updateTask = async (taskId, userId, title, description, category,due_dat
 }
 
 exports.deleteTask = async (taskid, userId) => {
-    const query = "DELETE FROM tasks WHERE id = $1 AND user_id = $2";
+    const query = "DELETE FROM tasks WHERE id = $1 AND user_id = $2 RETURNING *";
     const result = await pool.query(query, [taskid, userId]);
 
-    return result.rowCount;
+    return result;
 }
