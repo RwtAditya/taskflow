@@ -12,7 +12,7 @@ form.addEventListener("submit", async (e)=>{
         body: JSON.stringify({email,password}),
     })
 
-    const data = res.json();
+    const data = await res.json();
 
     if(!res.ok) { // false when bad responses
         document.getElementById("errorMsg").textContent = data.message;
