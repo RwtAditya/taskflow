@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');   
+/* global Values */
+:root {
+    /* --main-bg-bright-blue: #00ABE4;
+    --secondary-color-mint: #0FFCBE;
+    --color-1-light-blue: #E9F1FA;  */
+
+    
+    --main-bg-bright-blue: #6C63FF;   
+    --secondary-color-mint: #A393FF;    
+    --color-1-light-blue: #F4F2FF;      
+}
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: var(--color-1-light-blue);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+h1{
+    font-size: 60px;
+    font-weight: bold;
+    color: var(--main-bg-bright-blue);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.head{
+    text-align: center;
+}
+
+span{
+    color: var(--secondary-color-mint);
+}
+
+form {
+    border: 2px solid var(--main-bg-bright-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 100%;    
+    padding: 10px;
+    border-radius: 20px;
+    /* height: 40vh; */
+}
+
+input{
+    width: 100%;
+    padding: 15px 15px;
+    background-color: white;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--secondary-color-mint);
+}
+
+button{
+    background-color: var(--main-bg-bright-blue);
+    padding: 10px 25px;
+    border-radius: 10px;
+    align-self: center;
+}
+button:hover {
+    opacity: 90%;
+    cursor: pointer;
+}
+
+@media (min-width: 576px) {
+    form {
+        width: 30%;    
+        padding: 20px 20px;
+
+    }
+
+    input{
+        padding: 10px 10px;
+        margin-bottom: 10px;
+    }
+
+    button{
+        margin: 15px 0px;
+    }
+}
+
+
+label{
+    padding: 10px 5px;
+    font-weight: bold;
+
+}
+
+.tag-line{
+    /* margin-top: 10px; */
+    font-size: 18px;
+    color: var(--secondary-color-mint);
+}
+
+.errorMsg{
+    width: 40%;
+    text-align: center;
+}
+
+footer{
+    border-top: 1px solid var(--main-bg-bright-blue);
+    margin-top: 50px;
+    text-align: center;
+    padding-top: 10px;
+}
