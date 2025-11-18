@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskflow Dashboard</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <script src="./js/dashboard.js" defer></script>
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <h1>Task<span>flow</span> Dashboard</h1>
+        <button class="logout-btn">Logout</button>
+    </header>
+
+    <div class="dashboard-container">
+
+        <!-- Add Task Card -->
+        <div class="add-task-card">
+            <h2>Add New Task</h2>
+
+            <input type="text" placeholder="Task Title" class="task-input" required>
+            <label for="dueDate">Due Date:</label>
+            <input type="date" name="dueDate" id="dueDate">
+            <textarea placeholder="Description" class="task-textarea" required></textarea>
+
+            <button class="add-btn">Add Task</button>
+        </div>
+
+        <!-- Task List Card -->
+        <div class="task-list-card">
+            <h2>Your Tasks</h2>
+
+            <div class="new-Cards">
+
+            </div>
+
+        </div>
+
+    </div>
+    <footer>
+        <p>Taskflow © 2025 — All Rights Reserved</p>
+        <p>Made with ❤️ by Aditya Rawat</p>
+    </footer>
+</body>
+</html>
