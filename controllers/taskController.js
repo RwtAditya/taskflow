@@ -31,7 +31,8 @@ exports.addTasks = async (req, res) => {
 
 exports.updateTasks = async (req, res) => {
     const userId = req.user.userId;
-    const {taskId, title, description, category,due_date, status} = req.body;
+    const taskId = parseInt(req.params.id, 10);
+    const {title, description, category,due_date, status} = req.body;
 
     try{
         const updateTask = await Tasks.updateTask(taskId,userId, title, description, category,due_date, status);
@@ -51,12 +52,12 @@ exports.updateTasks = async (req, res) => {
 
 exports.deleteTasks = async (req, res) => {
     const userId = req.user.userId;
-    const {taskId} = req.body;
+    const taskId = parseInt(req.params.id, 10);
 
     try{
         const deleteTask = await Tasks.deleteTask(taskId, userId);
 
-        if(deleteTask === 0){
+        if(deleteTask.rowCount === 0){
             return res.status(404).json({message: "Task not found or not allowed"});
         }
         return res.status(200).json({message: "Task Deleted"});
