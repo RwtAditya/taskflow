@@ -1,63 +1,47 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Form</title>
-</head>
-<body>
-    <form id="registerForm">
-        <label for="username">username</label>
-        <input type="text" id="username" name="username">
-        <label for="email">email</label>
-        <input type="text" name="email" id="email">
-        <label for="password">password</label>
-        <input type="text" name="password" id="password">
-        <button>Register</button>
-    </form>
-    <p id="errorMsg"></p>
-    <script src="./js/register.js"></script>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/login_register.css">
-    <title>Register Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/login_register.css">
+  <title>Taskflow Register</title>
 </head>
+
 <body>
-    <div class="wrapper register-page">
-        <div class="head">
-            <h1>Task<span>flow</span> Register</h1>
-            <p class="tag-line">Create your account</p>
-        </div>
 
-        <form id="registerForm">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username">
+  <header class="navbar">
+    <h1 class="logo">Task<span>flow</span></h1>
+  </header>
 
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email">
+  <main class="form-container">
+    <h2 class="title">Create a new account</h2>
 
-            <label for="password">Password</label>
-            <input type="text" id="password" name="password">
+    <form id="registerForm" class="form-box">
 
-            <button>Register</button>
-        </form>
-        
-        <p id="errorMsg"></p>
+      <label>Username</label>
+      <input type="text" id="username" name="username" required>
 
-        <footer>
-            <p>Taskflow © 2025 — All Rights Reserved</p>
-            <p>Made with ❤️ by Aditya Rawat</p>
-        </footer>
+      <label>Email</label>
+      <input type="text" id="email" name="email" required>
 
-    </div>
+      <label>Password</label>
+      <input type="password" id="password" name="password" required>
 
-    <script src="./js/register.js"></script>
+      <p id="errorMsg" class="error"></p>
+
+      <button type="submit" class="btn primary">Register</button>
+    </form>
+
+    <p class="switch-page">Already have an account?  
+      <a href="/login">Login</a>
+    </p>
+  </main>
+
+  <footer class="footer">
+    <p>Taskflow © 2025 — All Rights Reserved</p>
+    <p>Made with ❤️ by Aditya Rawat</p>
+  </footer>
+
+  <script src="./js/register.js"></script>
 </body>
 </html>
