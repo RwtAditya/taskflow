@@ -1,3 +1,4 @@
+//just some checks incase of error
 const token = localStorage.getItem("token");
 if(!token){
     window.location.href = "/login";
@@ -14,14 +15,22 @@ try{
     throw err;
 }
 
+
+//Dom elements 
 let tasks = [];
 const taskDiv = document.querySelector(".new-Cards");
 const titleInput = document.querySelector(".task-input");
 const descriptionInput = document.querySelector(".task-textarea");
 const dueDateInput = document.querySelector("#dueDate");
+const fab = document.querySelector(".fab");
+const addSection = document.querySelector(".add-section");
+const logout = document.querySelector(".logout-btn");
+const addTaskBtn = document.querySelector(".add-btn");
+
 let currentEditingTaskId = null;
 
 
+//initialization function
 async function init() {
     tasks = await getTasks();
     displayTasks(tasks);
@@ -29,7 +38,6 @@ async function init() {
 
 init();
 
-const addTaskBtn = document.querySelector(".add-btn");
 addTaskBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
@@ -37,12 +45,15 @@ addTaskBtn.addEventListener("click", async (e) => {
         await updateTask(currentEditingTaskId);
         currentEditingTaskId = null;
         addTaskBtn.textContent = "Add Task";
+        
     }
     else{
         await createTask();
     }
 })
 
+
+//display on loading dashboard
 function displayTasks(){
     if(tasks.length === 0) {
         taskDiv.innerHTML = "";
@@ -76,16 +87,25 @@ function displayTasks(){
 
             checkBox.addEventListener("change", (e) => {
                 const completed = taskCard.querySelector(".task-status");
+                const para = taskCard.querySelector(".task-item > p");
                 if(checkBox.checked){
+                    completed.classList.add("task-complete");
                     completed.textContent = "Completed";
+                    para.classList.add("complete");
                 }
                 else{
-                    if(completed) completed.innerHTML="";
+                    if(completed) {
+                        completed.innerHTML="";
+                        para.classList.remove("complete");
+                    }
                 }
 
             })
 
             editTask.addEventListener("click", (e) => {
+                addSection.classList.toggle("hidden");
+                fab.textContent = addSection.classList.contains("hidden") ? "+" : "×";
+
                 loadTaskIntoForm(task);
             })
             taskDiv.appendChild(taskCard);
@@ -94,8 +114,9 @@ function displayTasks(){
     }
 }
 
-function loadTaskIntoForm(task) {
 
+//infomation loading in case of editing task
+function loadTaskIntoForm(task) {
     titleInput.value = task.title;
     descriptionInput.value = task.description;
     dueDateInput.value = task.due_date.split("T")[0];
@@ -107,6 +128,9 @@ function loadTaskIntoForm(task) {
     addTaskBtn.textContent = "Update Task";
 }
 
+
+
+//get tasks api call
 async function getTasks() {
     const res = await fetch("/api/tasks", {
         method: "GET",
@@ -120,7 +144,7 @@ async function getTasks() {
 }
 
 
-
+//create task api call
 async function createTask() {
     const title = document.querySelector(".task-input").value;
     const description = document.querySelector(".task-textarea").value;
@@ -149,11 +173,23 @@ async function createTask() {
     //added the new task
     tasks.unshift(task);
     displayTasks();
+
+    restForm();
+
+    addSection.classList.add("hidden");
+    fab.textContent ="+";
     
 }
 
+
+//update task api call
 async function updateTask(taskId){
-    const task = tasks.find(t => t.id === taskId);
+    // const task = tasks.find(t => t.id === taskId);
+    const title = document.querySelector(".task-input").value;
+    const description = document.querySelector(".task-textarea").value;
+    const status = "pending";
+    const category = "Action";
+    const due_date = document.querySelector("#dueDate").value;
 
     const res = await fetch(`/api/tasks/${taskId}`, {
         method: "PUT",
@@ -162,11 +198,11 @@ async function updateTask(taskId){
             "Content-Type" : "application/json"
         },
         body: JSON.stringify({
-            title: task.title,
-            description: task.description,
-            status: task.status,
-            category: task.category,
-            due_date: task.due_date
+            title: title,
+            description: description,
+            status: status,
+            category: category,
+            due_date: due_date
         })
     });
 
@@ -176,8 +212,14 @@ async function updateTask(taskId){
     tasks = tasks.map(t => t.id === taskId ? data.task : t);
 
     displayTasks();
+    restForm();
+
+    addSection.classList.add("hidden");
+    fab.textContent = "+";
 }
 
+
+//delete task api call
 async function deleteTask(taskId) {
     const task = tasks.filter(task => task.id === taskId);
 
@@ -197,4 +239,28 @@ async function deleteTask(taskId) {
     //refresh dashboard 
     tasks = tasks.filter(t => t.id !== taskId);
     displayTasks();
+}
+
+
+
+// Floating button toggle for Add Task form
+fab.addEventListener("click", () => {
+  addSection.classList.toggle("hidden");
+
+  fab.textContent = addSection.classList.contains("hidden") ? "+" : "×";
+});
+
+
+//logout
+logout.addEventListener("click", (e) => {
+    localStorage.removeItem("token");
+
+    window.location.href = "/index.html";
+})
+
+//form reset
+function restForm(){
+    titleInput.value ='';
+    descriptionInput.value='';
+    dueDateInput.value='';
 }
