@@ -1,125 +1,131 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');   
-/* global Values */
+/* Soft Blue Login & Register Pages */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 :root {
-    /* --main-bg-bright-blue: #00ABE4;
-    --secondary-color-mint: #0FFCBE;
-    --color-1-light-blue: #E9F1FA;  */
-
-    
-    --main-bg-bright-blue: #6C63FF;   
-    --secondary-color-mint: #A393FF;    
-    --color-1-light-blue: #F4F2FF;      
+  --bg: #EAF3FF;
+  --primary: #AFCBFF;
+  --primary-deep: #6FA8FF;
+  --text: #333;
+  --gray: #666;
+  --radius: 12px;
 }
-
-
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-body{
-    background-color: var(--color-1-light-blue);
+body {
+  background: var(--bg);
+  color: var(--text);
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+/* Navbar */
+.navbar {
+  padding: 18px 24px;
+  background: white;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
-h1{
-    font-size: 60px;
-    font-weight: bold;
-    color: var(--main-bg-bright-blue);
-    white-space: nowrap;
-    overflow: hidden;
+.logo {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--primary-deep);
 }
 
-.head{
-    text-align: center;
+.logo span {
+  color: var(--primary);
 }
 
-span{
-    color: var(--secondary-color-mint);
+/* Main Form Container */
+.form-container {
+  width: 90%;
+  max-width: 400px;
+  margin: 40px auto;
+  text-align: center;
 }
 
-form {
-    border: 2px solid var(--main-bg-bright-blue);
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    width: 100%;    
-    padding: 10px;
-    border-radius: 20px;
-    /* height: 40vh; */
+.title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
 }
 
-input{
-    width: 100%;
-    padding: 15px 15px;
-    background-color: white;
-    margin-bottom: 40px;
-    border-radius: 10px;
-    border: 1px solid var(--secondary-color-mint);
+/* Form Box */
+.form-box {
+  background: white;
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
 }
 
-button{
-    background-color: var(--main-bg-bright-blue);
-    padding: 10px 25px;
-    border-radius: 10px;
-    align-self: center;
-}
-button:hover {
-    opacity: 90%;
-    cursor: pointer;
+label {
+  font-weight: 500;
+  color: var(--text);
 }
 
-@media (min-width: 576px) {
-    form {
-        width: 30%;    
-        padding: 20px 20px;
-
-    }
-
-    input{
-        padding: 10px 10px;
-        margin-bottom: 10px;
-    }
-
-    button{
-        margin: 15px 0px;
-    }
+input {
+  padding: 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: var(--radius);
+  font-size: 14px;
+  outline: none;
 }
 
-
-label{
-    padding: 10px 5px;
-    font-weight: bold;
-
+input:focus {
+  border-color: var(--primary-deep);
 }
 
-.tag-line{
-    /* margin-top: 10px; */
-    font-size: 18px;
-    color: var(--secondary-color-mint);
+/* Error message */
+.error {
+  color: #ff4b4b;
+  font-size: 14px;
+  min-height: 18px;
 }
 
-.errorMsg{
-    width: 40%;
-    text-align: center;
+/* Buttons */
+.btn {
+  padding: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: 0.15s;
+  border: none;
 }
 
-footer{
-    border-top: 1px solid var(--main-bg-bright-blue);
-    margin-top: 50px;
-    text-align: center;
-    padding-top: 10px;
+.btn.primary {
+  background: var(--primary-deep);
+  color: white;
+}
+
+.btn.primary:hover {
+  opacity: 0.9;
+}
+
+/* Page switch link */
+.switch-page {
+  margin-top: 16px;
+  color: var(--gray);
+}
+
+.switch-page a {
+  color: var(--primary-deep);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  color: var(--gray);
+  font-size: 14px;
 }
