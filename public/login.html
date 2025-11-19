@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/login_register.css">
-    <title>Login Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/login_register.css">
+  <title>Taskflow Login</title>
 </head>
+
 <body>
-    <div class="wrapper">
-        <div class="head">
-            <h1>Task<span>flow</span> Login</h1>
-            <p class="tag-line">One place to track every task</p>
-        </div>
-        <p id="errorMsg"></p>
-            <form id="loginForm">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email">
-                <label for="password">Password</label>
-                <input type="text" id="password" name="password">
-                <button>Login</button>
-            </form>
-            <footer>
-                <p>Taskflow © 2025 — All Rights Reserved</p>
-                <p>Made with ❤️ by Aditya Rawat</p>
-            </footer>
-    </div>
 
+  <header class="navbar">
+    <h1 class="logo">Task<span>flow</span></h1>
+  </header>
 
-    <script src="./js/login.js"></script>
+  <main class="form-container">
+    <h2 class="title">Login to your account</h2>
+
+    <form id="loginForm" class="form-box">
+      <label>Email</label>
+      <input type="text" id="email" name="email" required>
+
+      <label>Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <p id="errorMsg" class="error"></p>
+
+      <button type="submit" class="btn primary">Login</button>
+    </form>
+
+    <p class="switch-page">Don't have an account?  
+      <a href="/register">Register</a>
+    </p>
+  </main>
+
+  <footer class="footer">
+    <p>Taskflow © 2025 — All Rights Reserved</p>
+    <p>Made with ❤️ by Aditya Rawat</p>
+  </footer>
+
+  <script src="./js/login.js"></script>
 </body>
 </html>
