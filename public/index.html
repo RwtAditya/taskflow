@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/index.css">
-    <title>Taskflow</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Taskflow</title>
+  <link rel="stylesheet" href="./css/index.css" />
 </head>
+
 <body>
-    <div class="grid-container">
-        <header class="header">
-            <div class="page-heading">
-                <h1>Taskflow</h1>
-                <p>One stop to track every task</p>
-            </div>
-            <div class="buttons">
-                <a href="/login"><button type="button">login</button></a>
-                <a href="/register"><button type="button">register</button></a>
-            </div>
-        </header>
-        <div class="about-taskflow-1">
-            <h2>Stay organized effortlessly</h2>
-            <div class="image-box">
-                <img src="./images/index-image-1.png" alt="image-1">
-                <p>Taskflow is designed to help you manage your tasks without any clutter. Add tasks, update them, and track progress — all from a simple and clean interface made to keep you focused.</p>
-            </div>
-        </div>
-        <div class="about-taskflow-2">
-            <h2>Smart, fast, and minimal</h2>
-            <div class="image-box">
-                <img src="./images/index-image-2.png" alt="image-2">
-                <p>No complicated features. Just what you need: a smooth way to record tasks, check what’s pending, and stay productive every day.</p>
-            </div>
-        </div>
+  <header class="navbar">
+    <h1 class="logo">Task<span>flow</span></h1>
 
-        <div class="contact-me">
-            <h2>Contact Me</h2>
-            <form action="">
-                <input type="text" name="name" id="name" placeholder="Full Name" autocomplete="off" required>
-                <input type="text" name="email" id="email" placeholder="Email" autocomplete="off" required>
-                <textarea name="message" id="message" placeholder="Enter Text" autocomplete="off" required rows="6" cols="60"></textarea>
-                <button>Submit</button>
-
-            </form>
-        </div>
-        <footer>
-            <p>Taskflow © 2025 — All Rights Reserved</p>
-            <p>Made with ❤️ by Aditya Rawat</p>
-        </footer>
+    <div class="nav-buttons">
+      <a href="/login"><button class="btn primary">Login</button></a>
+      <a href="/register"><button class="btn outline">Register</button></a>
     </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h2>Your tasks, organized beautifully.</h2>
+      <p class="tagline">Minimal. Clean. Designed to help you stay focused.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="feature-card">
+        <img src="./images/index-image-1.png" alt="Taskflow Feature 1" />
+        <h3>Organize with ease</h3>
+        <p>Add tasks, set deadlines, and stay on top of your work with a clean interface.</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="./images/index-image-2.png" alt="Taskflow Feature 2" />
+        <h3>Minimal. Fast. Effective.</h3>
+        <p>A distraction-free workflow designed to help you focus on what matters.</p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea rows="5" placeholder="Message" required></textarea>
+        <button class="btn primary" type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Taskflow © 2025 — All Rights Reserved</p>
+      <p>Made with ❤️ by Aditya Rawat</p>
+    </footer>
+
+  </main>
 </body>
 </html>
